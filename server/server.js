@@ -23,6 +23,11 @@ app.put('/api/v1/restaurants/:id', (req, res) => {
   res.json({ restaurants: { id: 1, name: 'Tatu Restaurant', location: 'Mkahawa', price_range: 3}})
 });
 
+//Delete a given restaurant
+app.delete('/api/v1/restaurants/:id', (req, res) => {
+  res.json({ restaurants: { id: 1, name: 'Tatu Restaurant', location: 'Mkahawa', price_range: 3}})
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 });
