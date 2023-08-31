@@ -10,10 +10,16 @@ const PORT = process.env.PORT ?? 8000
 //Retrive list of all restaurants
 app.get('/api/v1/restaurants', async(req, res) => {
   try {
-    const restaurants = await db.query("SELECT * FROM restaurants");
-    res.json(restaurants.rows)
+    const results = await db.query("SELECT * FROM restaurants");
+    res.status(200).json({
+      status: "success",
+      results: results.rowCount,
+      data: {
+        restaurants: results.rows
+      }
+    });
   } catch (error) {
-    console.log("Error", error);
+    res.status(500).json({ detail: error.detail });
   }
 });
 
