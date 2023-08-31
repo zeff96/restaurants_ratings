@@ -49,7 +49,7 @@ app.post('/api/v1/restaurants', async(req, res) => {
   }
   try {
     const result = await db.query(query);
-    res.status(200).json({
+    res.status(201).json({
       status: 'success',
       result: result.rowCount,
       data: {
@@ -72,7 +72,7 @@ app.put('/api/v1/restaurants/:id', async(req, res) => {
   try {
     const result = await db.query(query);
     res.status(200).json({
-      status: 'success',
+      status: 'Restaurant updated successfully!',
       result: result.rowCount,
       data: {
         restaurant: result.rows[0]
@@ -84,8 +84,18 @@ app.put('/api/v1/restaurants/:id', async(req, res) => {
 });
 
 //Delete a given restaurant
-app.delete('/api/v1/restaurants/:id', (req, res) => {
-  res.json({ restaurants: { id: 1, name: 'Tatu Restaurant', location: 'Mkahawa', price_range: 3}})
+app.delete('/api/v1/restaurants/:id', async(req, res) => {
+  const { id } = req.params;
+  const query = {
+    text: 'DELETE FROM restaurants WHERE restaurants.id = $1',
+    values: [id]
+  }
+  try {
+    const result = await db.query(query);
+    res.status(200).json({ status: 'Restaurant deleted successfully!' })
+  } catch (error) {
+    res.status(500).json({ detail: error.detail });
+  }
 });
 
 app.listen(PORT, () => {
