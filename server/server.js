@@ -24,8 +24,20 @@ app.get('/api/v1/restaurants', async(req, res) => {
 });
 
 //Retrieve a given restaurant by id
-app.get('/api/v1/restaurants/:id', (req, res) => {
-  res.json({ restaurants: { id: 1, name: 'Tatu Restaurant', location: 'Mkahawa', price_range: 3}})
+app.get('/api/v1/restaurants/:id', async(req, res) => {
+  const { id } = req.params;
+  try {
+    const result = await db.query(`SELECT * FROM restaurants  WHERE restaurants.id = $1`, [id]);
+    res.status(200).json({
+      status: 'success',
+      result: result.rowCount,
+      data: {
+        restaurant: result.rows[0]
+      }
+    })
+  } catch (error) {
+    res.status(500).json({ detail: error.detail });
+  }
 });
 
 //create a given restaurant
