@@ -8,6 +8,10 @@ app.get('/api/v1/restaurants', (req, res) => {
   res.json({ restaurants: { name: 'Macdonalds', location: 'Miami', price_range: 3}})
 });
 
+//Retrieve a given restaurant by id
+app.get('/api/v1/restaurants/:id', (req, res) => {
+  res.json({ restaurants: { id: 1, name: 'Tatu Restaurant', location: 'Mkahawa', price_range: 3}})
+});
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
