@@ -1,4 +1,4 @@
-CREATE DATABASE restaurants;
+CREATE DATABASE yelp;
 
 CREATE TABLE restaurants(
   id BIGSERIAL NOT NULL,
