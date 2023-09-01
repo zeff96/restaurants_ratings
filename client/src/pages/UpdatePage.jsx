@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Restaurants from '../apis/Restaurants';
 
 const UpdatePage = () => {
   const [name, setName] = useState('');
   const [location, setLocation] = useState('');
   const [priceRange, setPriceRange] = useState('');
+
   const { id } = useParams();
+  const nagivate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,7 +16,7 @@ const UpdatePage = () => {
         const response = await Restaurants.get(`/${id}`);
         setName(response.data.restaurant.name);
         setLocation(response.data.restaurant.location);
-        setPriceRange(response.data.restaurant.priceRange);
+        setPriceRange(response.data.restaurant.price_range);
       } catch (error) {
         console.log(error);
       }
@@ -23,10 +25,31 @@ const UpdatePage = () => {
     fetchData();
   }, []);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const data = {
+      name,
+      location,
+      price_range: priceRange,
+    };
+
+    try {
+      await Restaurants.put(`/${id}`, data, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      nagivate('/');
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className='mt-5'>
       <h1 className='fw-light display-1 text-center'>Update Restaurant</h1>
-      <form className='form'>
+      <form className='form' onSubmit={handleSubmit}>
         Name
         <input
           type='text'
