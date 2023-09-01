@@ -1,22 +1,25 @@
 const express = require('express');
+const cors = require('cors');
 require('dotenv').config();
-const db = require('./db')
+
+const db = require('./db');
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
-const PORT = process.env.PORT ?? 8000
+const PORT = process.env.PORT ?? 8000;
 
 //Retrive list of all restaurants
-app.get('/api/v1/restaurants', async(req, res) => {
+app.get('/api/v1/restaurants', async (req, res) => {
   try {
-    const results = await db.query("SELECT * FROM restaurants");
+    const results = await db.query('SELECT * FROM restaurants');
     res.status(200).json({
-      status: "success",
+      status: 'success',
       results: results.rowCount,
       data: {
-        restaurants: results.rows
-      }
+        restaurants: results.rows,
+      },
     });
   } catch (error) {
     res.status(500).json({ detail: error.detail });
@@ -24,37 +27,40 @@ app.get('/api/v1/restaurants', async(req, res) => {
 });
 
 //Retrieve a given restaurant by id
-app.get('/api/v1/restaurants/:id', async(req, res) => {
+app.get('/api/v1/restaurants/:id', async (req, res) => {
   const { id } = req.params;
   try {
-    const result = await db.query(`SELECT * FROM restaurants  WHERE restaurants.id = $1`, [id]);
+    const result = await db.query(
+      `SELECT * FROM restaurants  WHERE restaurants.id = $1`,
+      [id]
+    );
     res.status(200).json({
       status: 'success',
       result: result.rowCount,
       data: {
-        restaurant: result.rows[0]
-      }
-    })
+        restaurant: result.rows[0],
+      },
+    });
   } catch (error) {
     res.status(500).json({ detail: error.detail });
   }
 });
 
 //create a given restaurant
-app.post('/api/v1/restaurants', async(req, res) => {
+app.post('/api/v1/restaurants', async (req, res) => {
   const { name, location, priceRange } = req.body;
   const query = {
     text: 'INSERT INTO restaurants(name, location, price_range) VALUES($1, $2, $3) RETURNING *',
-    values: [name, location, priceRange]
-  }
+    values: [name, location, priceRange],
+  };
   try {
     const result = await db.query(query);
     res.status(201).json({
       status: 'success',
       result: result.rowCount,
       data: {
-        restaurant: result.rows[0]
-      }
+        restaurant: result.rows[0],
+      },
     });
   } catch (error) {
     res.status(500).json({ detail: error.detail });
@@ -62,21 +68,21 @@ app.post('/api/v1/restaurants', async(req, res) => {
 });
 
 //Update/edit a given restaurant
-app.put('/api/v1/restaurants/:id', async(req, res) => {
+app.put('/api/v1/restaurants/:id', async (req, res) => {
   const { id } = req.params;
   const { name, location, priceRange } = req.body;
   const query = {
     text: 'UPDATE restaurants SET name = $1, location = $2, price_range = $3 WHERE restaurants.id = $4 RETURNING *',
-    values: [name, location, priceRange, id]
-  }
+    values: [name, location, priceRange, id],
+  };
   try {
     const result = await db.query(query);
     res.status(200).json({
       status: 'Restaurant updated successfully!',
       result: result.rowCount,
       data: {
-        restaurant: result.rows[0]
-      }
+        restaurant: result.rows[0],
+      },
     });
   } catch (error) {
     res.status(500).json({ detail: error.detail });
@@ -84,20 +90,20 @@ app.put('/api/v1/restaurants/:id', async(req, res) => {
 });
 
 //Delete a given restaurant
-app.delete('/api/v1/restaurants/:id', async(req, res) => {
+app.delete('/api/v1/restaurants/:id', async (req, res) => {
   const { id } = req.params;
   const query = {
     text: 'DELETE FROM restaurants WHERE restaurants.id = $1',
-    values: [id]
-  }
+    values: [id],
+  };
   try {
     const result = await db.query(query);
-    res.status(200).json({ status: 'Restaurant deleted successfully!' })
+    res.status(200).json({ status: 'Restaurant deleted successfully!' });
   } catch (error) {
     res.status(500).json({ detail: error.detail });
   }
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`)
+  console.log(`Server running on port ${PORT}`);
 });

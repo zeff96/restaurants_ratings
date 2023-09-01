@@ -26,7 +26,7 @@ const AddRestaurants = () => {
         </div>
         <div className='col-sm'>
           <select
-            class='form-select'
+            className='form-select'
             aria-label='Default select example'
             required
           >

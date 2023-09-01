@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import Restaurants from '../apis/Restaurants';
 
 function ListRestaurants() {
+  useEffect(async () => {
+    try {
+      const response = await Restaurants.get('/');
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  });
   return (
     <div className='table-responsive-sm'>
-      <table class='table table-hover table-dark'>
+      <table className='table table-hover table-dark'>
         <thead>
           <tr className='table-primary'>
             <th scope='col'>Restaurant</th>
