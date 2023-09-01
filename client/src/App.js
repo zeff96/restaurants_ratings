@@ -1,8 +1,18 @@
-function App() {
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './components/Homepage';
+import DetailsPage from './components/DetailsPage';
+import UpdatePage from './components/UpdatePage';
+
+const App = () => {
   return (
     <div className="container">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni placeat id error eos! Nam error praesentium non quis perspiciatis illo consectetur commodi animi temporibus? Distinctio.</p>
-      <i class="fa-solid fa-star"></i>
+      <Router>
+        <Routes>
+          <Route exact path='/' element={<HomePage />}/>
+          <Route exact path='/restaurants/:id' element={<DetailsPage />}/>
+          <Route exact path='/restaurants/:id/update' element={<UpdatePage />}/>
+        </Routes>
+      </Router>
     </div>
   );
 }
