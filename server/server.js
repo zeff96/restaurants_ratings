@@ -44,10 +44,10 @@ app.get('/api/v1/restaurants/:id', async (req, res) => {
 
 //create a given restaurant
 app.post('/api/v1/restaurants', async (req, res) => {
-  const { name, location, priceRange } = req.body;
+  const { name, location, price_range } = req.body;
   const query = {
     text: 'INSERT INTO restaurants(name, location, price_range) VALUES($1, $2, $3) RETURNING *',
-    values: [name, location, priceRange],
+    values: [name, location, price_range],
   };
   try {
     const result = await db.query(query);
@@ -64,10 +64,10 @@ app.post('/api/v1/restaurants', async (req, res) => {
 //Update/edit a given restaurant
 app.put('/api/v1/restaurants/:id', async (req, res) => {
   const { id } = req.params;
-  const { name, location, priceRange } = req.body;
+  const { name, location, price_range } = req.body;
   const query = {
     text: 'UPDATE restaurants SET name = $1, location = $2, price_range = $3 WHERE restaurants.id = $4 RETURNING *',
-    values: [name, location, priceRange, id],
+    values: [name, location, price_range, id],
   };
   try {
     const result = await db.query(query);
