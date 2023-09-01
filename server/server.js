@@ -17,9 +17,7 @@ app.get('/api/v1/restaurants', async (req, res) => {
     res.status(200).json({
       status: 'success',
       results: results.rowCount,
-      data: {
-        restaurants: results.rows,
-      },
+      restaurants: results.rows,
     });
   } catch (error) {
     res.status(500).json({ detail: error.detail });
@@ -37,9 +35,7 @@ app.get('/api/v1/restaurants/:id', async (req, res) => {
     res.status(200).json({
       status: 'success',
       result: result.rowCount,
-      data: {
-        restaurant: result.rows[0],
-      },
+      restaurant: result.rows[0],
     });
   } catch (error) {
     res.status(500).json({ detail: error.detail });
@@ -58,9 +54,7 @@ app.post('/api/v1/restaurants', async (req, res) => {
     res.status(201).json({
       status: 'success',
       result: result.rowCount,
-      data: {
-        restaurant: result.rows[0],
-      },
+      restaurant: result.rows[0],
     });
   } catch (error) {
     res.status(500).json({ detail: error.detail });
@@ -80,9 +74,7 @@ app.put('/api/v1/restaurants/:id', async (req, res) => {
     res.status(200).json({
       status: 'Restaurant updated successfully!',
       result: result.rowCount,
-      data: {
-        restaurant: result.rows[0],
-      },
+      restaurant: result.rows[0],
     });
   } catch (error) {
     res.status(500).json({ detail: error.detail });
