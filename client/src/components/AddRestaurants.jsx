@@ -1,18 +1,21 @@
-import React, { useState } from 'react';
+import React, { useContext, useRef } from 'react';
 import Restaurants from '../apis/Restaurants';
+import { RestaurantsContext } from '../context/RestaurantsContext';
 
 const AddRestaurants = () => {
-  const [name, setName] = useState('');
-  const [location, setLocation] = useState('');
-  const [priceRange, setPriceRange] = useState('Price Range');
+  const { addRestaurant } = useContext(RestaurantsContext);
+  const formRef = useRef();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const formData = new FormData(formRef.current);
+    const form = Object.fromEntries(formData);
+
     const data = {
-      name,
-      location,
-      price_range: priceRange,
+      name: form.name,
+      location: form.location,
+      price_range: form.price_range,
     };
 
     try {
@@ -21,8 +24,9 @@ const AddRestaurants = () => {
           'Content-Type': 'application/json',
         },
       });
+      e.target.reset();
 
-      console.log(response);
+      addRestaurant(response.data.restaurant);
     } catch (error) {
       console.log(error);
     }
@@ -30,17 +34,19 @@ const AddRestaurants = () => {
 
   return (
     <div className='mb-4'>
-      <form className='row g-3 align-items-center' onSubmit={handleSubmit}>
+      <form
+        ref={formRef}
+        className='row g-3 align-items-center'
+        onSubmit={handleSubmit}
+      >
         <div className='col-sm'>
           <input
             type='text'
             name='name'
             id='name'
-            value={name}
             placeholder='Name'
             required
             className='form-control'
-            onChange={(e) => setName(e.target.value)}
           />
         </div>
         <div className='col-sm'>
@@ -48,22 +54,23 @@ const AddRestaurants = () => {
             type='text'
             name='location'
             id='location'
-            value={location}
             placeholder='Location'
             required
             className='form-control'
-            onChange={(e) => setLocation(e.target.value)}
           />
         </div>
         <div className='col-sm'>
           <select
             className='form-select'
+            name='price_range'
+            id='price_range'
             aria-label='Default select example'
+            defaultValue='Price Range'
             required
-            value={priceRange}
-            onChange={(e) => setPriceRange(e.target.value)}
           >
-            <option disabled='price range'>Price Range</option>
+            <option disabled value='Price Range'>
+              Price Range
+            </option>
             <option value='1'>$</option>
             <option value='2'>$$</option>
             <option value='3'>$$$</option>
