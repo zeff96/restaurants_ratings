@@ -1,9 +1,12 @@
 import React, { useContext, useEffect } from 'react';
 import Restaurants from '../apis/Restaurants';
 import { RestaurantsContext } from '../context/RestaurantsContext';
+import { useNavigate } from 'react-router-dom';
 
 function ListRestaurants() {
   const { restaurants, setRestaurants } = useContext(RestaurantsContext);
+  const navigate = useNavigate();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -15,6 +18,10 @@ function ListRestaurants() {
     };
     fetchData();
   }, []);
+
+  const handleUpdate = (id) => {
+    navigate(`/restaurants/${id}/update`);
+  };
 
   const handleDelete = async (id) => {
     const response = await Restaurants.delete(`/${id}`);
@@ -47,7 +54,11 @@ function ListRestaurants() {
                 <td>{'$'.repeat(restaurant.price_range)}</td>
                 <td></td>
                 <td>
-                  <button type='button' className='btn btn-warning'>
+                  <button
+                    type='button'
+                    className='btn btn-warning'
+                    onClick={() => handleUpdate(restaurant.id)}
+                  >
                     UPDATE
                   </button>
                 </td>

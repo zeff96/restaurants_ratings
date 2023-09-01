@@ -78,7 +78,7 @@ const AddRestaurants = () => {
             <option value='5'>$$$$$</option>
           </select>
         </div>
-        <div className='col-sm'>
+        <div className='col-sm d-grid'>
           <input type='submit' value='Add' className='btn btn-primary' />
         </div>
       </form>
