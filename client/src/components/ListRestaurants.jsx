@@ -1,12 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Restaurants from '../apis/Restaurants';
+import { RestaurantsContext } from '../context/RestaurantsContext';
 
 function ListRestaurants() {
+  const { restaurants, setRestaurants } = useContext(RestaurantsContext);
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await Restaurants.get('/');
-        console.log(response);
+        setRestaurants(response.data.restaurants);
       } catch (error) {
         console.log(error);
       }
@@ -27,7 +29,27 @@ function ListRestaurants() {
             <th scope='col'>Delete</th>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody>
+          {restaurants &&
+            restaurants.map((restaurant) => (
+              <tr key={restaurant.id}>
+                <td>{restaurant.name}</td>
+                <td>{restaurant.location}</td>
+                <td>{'$'.repeat(restaurant.price_range)}</td>
+                <td></td>
+                <td>
+                  <button type='button' className='btn btn-warning'>
+                    UPDATE
+                  </button>
+                </td>
+                <td>
+                  <button type='button' className='btn btn-danger'>
+                    DELETE
+                  </button>
+                </td>
+              </tr>
+            ))}
+        </tbody>
       </table>
     </div>
   );
