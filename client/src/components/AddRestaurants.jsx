@@ -10,6 +10,7 @@ const AddRestaurants = () => {
             name='name'
             id='name'
             placeholder='Name'
+            required
             className='form-control'
           />
         </div>
@@ -19,11 +20,16 @@ const AddRestaurants = () => {
             name='location'
             id='location'
             placeholder='Location'
+            required
             className='form-control'
           />
         </div>
         <div className='col-sm'>
-          <select class='form-select' aria-label='Default select example'>
+          <select
+            class='form-select'
+            aria-label='Default select example'
+            required
+          >
             <option defaultValue='price range'>Price Range</option>
             <option value='1'>$</option>
             <option value='2'>$$</option>
@@ -33,9 +39,7 @@ const AddRestaurants = () => {
           </select>
         </div>
         <div className='col-sm'>
-          <button type='submit' className='btn btn-primary'>
-            Add
-          </button>
+          <input type='submit' value='Add' className='btn btn-primary' />
         </div>
       </form>
     </div>
