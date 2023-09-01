@@ -16,6 +16,15 @@ function ListRestaurants() {
     fetchData();
   }, []);
 
+  const handleDelete = async (id) => {
+    const response = await Restaurants.delete(`/${id}`);
+    setRestaurants(
+      restaurants.filter((restaurant) => {
+        return restaurant.id !== id;
+      })
+    );
+  };
+
   return (
     <div className='table-responsive-sm'>
       <table className='table table-hover table-dark'>
@@ -43,7 +52,11 @@ function ListRestaurants() {
                   </button>
                 </td>
                 <td>
-                  <button type='button' className='btn btn-danger'>
+                  <button
+                    type='button'
+                    className='btn btn-danger'
+                    onClick={() => handleDelete(restaurant.id)}
+                  >
                     DELETE
                   </button>
                 </td>
