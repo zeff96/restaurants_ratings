@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import Restaurants from '../apis/Restaurants';
 import { RestaurantsContext } from '../context/RestaurantsContext';
 import StarRatings from '../components/StarRatings';
+import Reviews from '../components/Reviews';
+import AddRatings from '../components/AddRatings';
 
 const DetailsPage = () => {
   const { selectedRestaurant, setSelectedRestaurant } =
@@ -32,6 +34,8 @@ const DetailsPage = () => {
           <>
             <StarRatings rating={2.3} />
           </>
+          <Reviews />
+          <AddRatings />
         </div>
       )}
     </div>
