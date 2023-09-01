@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HomePage from './components/Homepage';
-import DetailsPage from './components/DetailsPage';
-import UpdatePage from './components/UpdatePage';
+import HomePage from './pages/Homepage';
+import DetailsPage from './pages/DetailsPage';
+import UpdatePage from './pages/UpdatePage';
 
 const App = () => {
   return (
