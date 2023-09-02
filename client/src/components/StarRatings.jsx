@@ -3,7 +3,7 @@ import React from 'react';
 const StarRatings = ({ rating }) => {
   const stars = [];
 
-  for (let elem = 0; elem <= 5; elem++) {
+  for (let elem = 1; elem <= 5; elem++) {
     if (elem <= rating) {
       stars.push(
         <i className='fa-sharp fa-solid fa-star text-warning' key={elem}></i>
