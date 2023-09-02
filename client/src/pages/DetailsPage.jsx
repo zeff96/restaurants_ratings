@@ -31,7 +31,16 @@ const DetailsPage = () => {
           <h1 className='fw-light display-1 text-center'>
             {selectedRestaurant?.restaurant?.name}
           </h1>
-          <StarRatings rating={2.3} />
+          <div className='text-center'>
+            <StarRatings
+              rating={selectedRestaurant?.restaurant?.average_rating}
+            />
+            <span className='text-warning'>
+              {selectedRestaurant?.restaurant?.count
+                ? `(${selectedRestaurant?.restaurant?.count})`
+                : '(0)'}
+            </span>
+          </div>
           <Reviews reviews={selectedRestaurant.reviews} />
           <AddRatings />
         </>
