@@ -106,6 +106,29 @@ app.delete('/api/v1/restaurants/:id', async (req, res) => {
   }
 });
 
+//Create a review for a given restaurant
+app.post('/api/v1/restaurants/:id/reviews', async (req, res) => {
+  const { id } = req.params;
+  const { name, review, rating } = req.body;
+
+  const query = {
+    text: 'INSERT INTO reviews(restaurant_id, name, review, rating) VALUES($1, $2, $3, $4) RETURNING *',
+    values: [id, name, review, rating],
+  };
+
+  try {
+    const result = await db.query(query);
+    res.status(201).json({
+      status: 'Review created successfully',
+      data: {
+        review: result.rows[0],
+      },
+    });
+  } catch (error) {
+    res.status(500).json({ detail: error.detail });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
