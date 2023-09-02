@@ -32,10 +32,18 @@ app.get('/api/v1/restaurants/:id', async (req, res) => {
       `SELECT * FROM restaurants  WHERE restaurants.id = $1`,
       [id]
     );
+
+    //Retrive a list of all reviews for a given restaurant
+
+    const reviews = await db.query(
+      `SELECT * FROM reviews  WHERE restaurant_id = $1`,
+      [id]
+    );
+
     res.status(200).json({
       status: 'success',
-      result: result.rowCount,
       restaurant: result.rows[0],
+      reviews: reviews.rows,
     });
   } catch (error) {
     res.status(500).json({ detail: error.detail });
