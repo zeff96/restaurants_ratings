@@ -1,4 +1,5 @@
 import React from 'react';
+import StarRatings from './StarRatings';
 
 const Reviews = () => {
   return (
@@ -9,7 +10,9 @@ const Reviews = () => {
       >
         <div className='d-flex justify-content-between p-1'>
           <span>Mike</span>
-          <span>3</span>
+          <span>
+            <StarRatings />
+          </span>
         </div>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis

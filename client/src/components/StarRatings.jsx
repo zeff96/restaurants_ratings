@@ -5,11 +5,17 @@ const StarRatings = ({ rating }) => {
 
   for (let elem = 0; elem <= 5; elem++) {
     if (elem <= rating) {
-      stars.push(<i className='fa-sharp fa-solid fa-star' key={elem}></i>);
+      stars.push(
+        <i className='fa-sharp fa-solid fa-star text-warning' key={elem}></i>
+      );
     } else if (elem === Math.ceil(rating) && !Number.isInteger(rating)) {
-      stars.push(<i className='fa-solid fa-star-half-stroke' key={elem}></i>);
+      stars.push(
+        <i className='fa-solid fa-star-half-stroke text-warning' key={elem}></i>
+      );
     } else {
-      stars.push(<i className='fa-regular fa-star' key={elem}></i>);
+      stars.push(
+        <i className='fa-regular fa-star text-warning' key={elem}></i>
+      );
     }
   }
   return <>{stars}</>;
