@@ -45,7 +45,7 @@ function ListRestaurants() {
     }
     return (
       <>
-        <StarRatings rating={restaurant.id} />
+        <StarRatings rating={restaurant.average_rating} />
         <span className='text-warning'>({restaurant.count})</span>
       </>
     );
