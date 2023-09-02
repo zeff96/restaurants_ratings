@@ -12,7 +12,10 @@ const AddRatings = () => {
       <div className='col-md-3'>
         <label htmlFor='rating' className='form-label d-block'>
           Rating
-          <select name='rating' className='form-select'>
+          <select name='rating' className='form-select' defaultValue='rating'>
+            <option disabled value='rating'>
+              Rating
+            </option>
             <option value='1'>1</option>
             <option value='2'>2</option>
             <option value='3'>3</option>
