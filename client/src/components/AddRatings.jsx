@@ -1,8 +1,38 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { useParams } from 'react-router-dom';
+import Restaurants from '../apis/Restaurants';
 
 const AddRatings = () => {
+  const { id } = useParams();
+  const formRef = useRef();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(formRef.current);
+    const form = Object.fromEntries(formData);
+
+    const data = {
+      name: form.name,
+      review: form.review,
+      rating: form.rating,
+    };
+
+    try {
+      const response = await Restaurants.post(`/${id}/reviews`, data, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      e.target.reset();
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
-    <form className='row g-3'>
+    <form className='row g-3' ref={formRef} onSubmit={handleSubmit}>
       <div className='col-md-9'>
         <label htmlFor='name' className='form-label d-block'>
           Name
