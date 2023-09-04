@@ -127,13 +127,13 @@ Example command:
 
 To run the project, execute the following command:
 
-<!--
 Example command:
 
 ```sh
-  rails server
+  npm start
 ```
---->
+
+-
 
 ### Run tests
 
@@ -167,17 +167,10 @@ Example:
 
 > Mention all of the collaborators of this project.
 
-👤 **Author1**
+👤 **Adeka Zeffs**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@zeff96](https://github.com/zeff96)
+- LinkedIn: [adeka zeffs](https://www.linkedin.com/in/adeka-zeffs/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
