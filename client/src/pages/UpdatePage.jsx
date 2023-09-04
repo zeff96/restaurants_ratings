@@ -14,16 +14,16 @@ const UpdatePage = () => {
     const fetchData = async () => {
       try {
         const response = await Restaurants.get(`/${id}`);
-        setName(response.data.restaurant.name);
-        setLocation(response.data.restaurant.location);
-        setPriceRange(response.data.restaurant.price_range);
+        setName(response.data.data.restaurant.name);
+        setLocation(response.data.data.restaurant.location);
+        setPriceRange(response.data.data.restaurant.price_range);
       } catch (error) {
         console.log(error);
       }
     };
 
     fetchData();
-  }, []);
+  }, [id]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
