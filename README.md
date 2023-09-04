@@ -85,47 +85,43 @@ This repository includes files with plain SQL that can be used to recreate a dat
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-> Describe how a new developer could make use of your project.
-
 To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
 In order to run this project you need:
 
-<!--
 Example command:
 
 ```sh
- gem install rails
+ npm start
 ```
- -->
 
 ### Setup
 
 Clone this repository to your desired folder:
 
-<!--
 Example commands:
 
 ```sh
   cd my-folder
-  git clone git@github.com:myaccount/my-project.git
+  git@github.com:zeff96/restaurants_ratings.git
 ```
---->
+
+-
 
 ### Install
 
 Install this project with:
 
-<!--
 Example command:
 
 ```sh
   cd my-project
-  gem install
+  npm install
 ```
---->
+
+-
 
 ### Usage
 
