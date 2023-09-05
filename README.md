@@ -180,7 +180,7 @@ Example:
 
 > Describe 1 - 3 features you will add to the project.
 
-- [ ] **[new_feature_1]**
+- [ ] **[User Authentication]**
 - [ ] **[new_feature_2]**
 - [ ] **[new_feature_3]**
 
