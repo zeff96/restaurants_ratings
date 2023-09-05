@@ -212,7 +212,7 @@ If you like this project or find it useful, please consider giving it a ⭐️. 
 
 > Give credit to everyone who inspired your codebase.
 
-I would like to thank...
+I would like to thank peers for the support
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
