@@ -222,11 +222,11 @@ I would like to thank peers for the support
 
 > Add at least 2 questions new developers would ask when they decide to use your project.
 
-- **[Question_1]**
+- **Is React still relevant for modern web development?**
 
   - [Answer_1]
 
-- **[Question_2]**
+- **Yes, React remains a highly relevant and widely used JavaScript library for building user interfaces in modern web development. It provides a component-based architecture, a strong developer community, and is actively maintained by Facebook. React's popularity and flexibility make it a solid choice for building interactive web applications.**
 
   - [Answer_2]
 
