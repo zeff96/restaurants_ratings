@@ -32,8 +32,6 @@ This repository includes files with plain SQL that can be used to recreate a dat
 
 # 📖 [Restaurants Finder] <a name="about-project"></a>
 
-> Describe your project in 1 or 2 sentences.
-
 **[Restaurant finder]** is application built with JavaScript, Expressjs and PostgreSQL which allow users to find restaurants, view their price ranges, submit a review of the restaurant based on the quality of service offered
 
 ## 🛠 Built With <a name="built-with"></a>
@@ -64,8 +62,6 @@ This repository includes files with plain SQL that can be used to recreate a dat
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
-
-> Describe between 1-3 key features of the application.
 
 - **[List of restaurants]**
 - **[Price Range]**
@@ -108,8 +104,6 @@ Example commands:
   git@github.com:zeff96/restaurants_ratings.git
 ```
 
--
-
 ### Install
 
 Install this project with:
@@ -121,8 +115,6 @@ Example command:
   npm install
 ```
 
--
-
 ### Usage
 
 To run the project, execute the following command:
@@ -132,8 +124,6 @@ Example command:
 ```sh
   npm start
 ```
-
--
 
 ### Run tests
 
@@ -165,8 +155,6 @@ Example:
 
 ## 👥 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
-
 👤 **Adeka Zeffs**
 
 - GitHub: [@zeff96](https://github.com/zeff96)
@@ -178,11 +166,7 @@ Example:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> Describe 1 - 3 features you will add to the project.
-
 - [ ] **[User Authentication]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -200,8 +184,6 @@ Feel free to check the [issues page](https://github.com/zeff96/restaurants_ratin
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
-
 If you like this project or find it useful, please consider giving it a ⭐️. Thanks!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -210,8 +192,6 @@ If you like this project or find it useful, please consider giving it a ⭐️. 
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Give credit to everyone who inspired your codebase.
-
 I would like to thank peers for the support
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -219,8 +199,6 @@ I would like to thank peers for the support
 <!-- FAQ (optional) -->
 
 ## ❓ FAQ <a name="faq"></a>
-
-> Add at least 2 questions new developers would ask when they decide to use your project.
 
 - **Is React still relevant for modern web development?**
 
