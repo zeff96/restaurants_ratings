@@ -222,13 +222,13 @@ I would like to thank peers for the support
 
 > Add at least 2 questions new developers would ask when they decide to use your project.
 
-- **Is React still relevant for modern web development?**
+- **[Question_1]**
 
   - [Answer_1]
 
-- **Yes, React remains a highly relevant and widely used JavaScript library for building user interfaces in modern web development. It provides a component-based architecture, a strong developer community, and is actively maintained by Facebook. React's popularity and flexibility make it a solid choice for building interactive web applications.**
+- **Why choose Express for the backend of this project?**
 
-  - [Answer_2]
+  - [Express is a popular and minimalistic Node.js web application framework known for its simplicity and flexibility. It's a great choice for this project because it allows developers to quickly set up RESTful APIs and handle HTTP requests and routes efficiently. Express also integrates well with other libraries and databases, making it a suitable choice for building the backend of a React application with a PostgreSQL database.]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
